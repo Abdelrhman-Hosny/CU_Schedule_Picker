@@ -1,5 +1,6 @@
 #This is this terms subects that I'm taking on which I'm going to try the algorithm
 from Subject import Subject
+import time
 dis = []
 dis.append(Subject("MTHN104" , "Sunday" ,8,0,11,0,Subject("MTHN104","Wednesday",13,0,15,0) ))
 dis.append(Subject("MTHN104" , "Wednesday" ,8,0,11,0,Subject("MTHN104","Wednesday",11,0,13,0)) )
@@ -33,8 +34,15 @@ Subject_Dict = {}
 Subject_Dict[dis[0].code] = dis
 Subject_Dict[pres[0].code] = pres
 Subject_Dict[num[0].code] = num
+Subject_Dict[dat_lec[0].code] = dat_lec
+Subject_Dict[data_tut[0].code] = data_tut
+Subject_Dict[mech[0].code] = mech
+
+
 prod = 1
 for key,val in Subject_Dict.items() :
     prod *= len(val)
-print(prod*4*4*3)
+
+
+
 
