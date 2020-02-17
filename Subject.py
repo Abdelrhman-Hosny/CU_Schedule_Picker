@@ -1,11 +1,12 @@
 import datetime
 weekdays = ["Sunday","Monday",'Tuesday','Wednesday','Thursday']
 class Subject:
-    def __init__(self,code,day,startHour,startMin,endHour,endMin):
-        self.code = code
+    def __init__(self,code,day,startHour,startMin,endHour,endMin,link=None):
+        self.code = code.upper()
         self.day = day.lower()
         self.startTime = datetime.time(startHour,startMin)
         self.endTime = datetime.time(endHour,endMin)
+        self.link = link
     
     @staticmethod
     def isBetween(T1,T2,T3):
@@ -21,5 +22,13 @@ class Subject:
         if(Subject.isBetween(self.startTime, Subj.startTime , Subj.endTime)):return True
         if(Subject.isBetween(Subj.startTime , self.startTime,self.endTime)): return True
         return False
+
+    def __str__(self):
+        return "{} : {} from {} to {} ".format(self.code,self.day,self.startTime,self.endTime)
+
+    def __repr__(self):
+        return str(self)
+    
+
     
         
