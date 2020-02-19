@@ -15,7 +15,9 @@ def remFirst(List):
 
 x = [1,2,3,4]
 
-remFirst(x)
+x = x * 2 
+
+x[0] = 3 
 
 print(x)
 

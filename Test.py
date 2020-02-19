@@ -1,5 +1,6 @@
 #This is this terms subects that I'm taking on which I'm going to try the algorithm
 from Subject import Subject
+from Schedule import Schedule
 import time
 dis = []
 dis.append(Subject("MTHN104" , "Sunday" ,8,0,11,0,Subject("MTHN104","Wednesday",13,0,15,0) ))
@@ -8,12 +9,12 @@ num = []
 num.append(Subject("MTHN201" , "Thursday" ,8,0,11,0,Subject("MTHN201","Thursday",11,0,13,0)) )
 num.append(Subject("MTHN201" , "Monday" ,8,0,11,0,Subject("MTHN201","Tuesday",13,0,15,0) ))
 
-pres =[]
+""" pres =[]
 pres.append(Subject("GENN201","Sunday",9,0,11,0))
 pres.append(Subject("GENN201","Sunday",11,0,13,0))
 pres.append(Subject("GENN201","Tuesday",9,0,11,0))
 pres.append(Subject("GENN201","Tuesday",11,0,13,0))
-
+ """
 mech = []
 mech.append(Subject("INTN125","Thursday",8,0,11,0,Subject("INTN125","Sunday",9,0,11,0)))
 mech.append(Subject("INTN125","Monday",8,0,11,0,Subject("INTN125","Thursday",11,0,13,0)))
@@ -44,7 +45,7 @@ circ_tut.append(Subject("ELCN112T","Thursday",14,0,16,0))
 
 Subject_Dict = {}
 Subject_Dict[dis[0].code] = dis
-Subject_Dict[pres[0].code] = pres
+""" Subject_Dict[pres[0].code] = pres """
 Subject_Dict[num[0].code] = num
 Subject_Dict[dat_lec[0].code] = dat_lec
 Subject_Dict[data_tut[0].code] = data_tut
@@ -53,11 +54,18 @@ Subject_Dict[circ_lec[0].code] = circ_lec
 Subject_Dict[circ_tut[0].code] = circ_tut
 
 
-prod = 1
-for key,val in Subject_Dict.items() :
-    prod *= len(val)
+Schedule_List = Schedule.generateSchedule(Subject_Dict)
 
-print("Discrete : {}\nNumerical : {}\nPresentation : {}".format(Subject_Dict["MTHN104"],Subject_Dict["MTHN201"],Subject_Dict["GENN201"]))
+
+
+# for Sched in Schedule_List:
+#     print('-'*50)
+#     for keys , val in Sched.days.items():
+#         print(keys , " : ", val)
+
+
+
+
 
 
 
