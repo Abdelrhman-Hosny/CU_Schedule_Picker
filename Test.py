@@ -30,6 +30,18 @@ data_tut.append(Subject("CMPN102T","Thursday",8,0,11,0))
 data_tut.append(Subject("CMPN102T","Thursday",13,0,16,0))
 data_tut.append(Subject("CMPN102T","Thursday",16,0,19,0))
 
+circ_lec = []
+circ_tut = []
+
+circ_lec.append(Subject("ELCN112L","Sunday",13,0,16,0))
+circ_lec.append(Subject("ELCN112L","Tuesday",13,0,16,0))
+circ_lec.append(Subject("ELCN112L","Tuesday",8,0,11,0))
+circ_tut.append(Subject("ELCN112T","Wednesday",11,0,13,0))
+circ_tut.append(Subject("ELCN112T","Wednesday",14,0,16,0))
+circ_tut.append(Subject("ELCN112T","Thursday",11,0,13,0))
+circ_tut.append(Subject("ELCN112T","Thursday",14,0,16,0))
+
+
 Subject_Dict = {}
 Subject_Dict[dis[0].code] = dis
 Subject_Dict[pres[0].code] = pres
@@ -37,11 +49,15 @@ Subject_Dict[num[0].code] = num
 Subject_Dict[dat_lec[0].code] = dat_lec
 Subject_Dict[data_tut[0].code] = data_tut
 Subject_Dict[mech[0].code] = mech
+Subject_Dict[circ_lec[0].code] = circ_lec
+Subject_Dict[circ_tut[0].code] = circ_tut
 
 
 prod = 1
 for key,val in Subject_Dict.items() :
     prod *= len(val)
+
+print("Discrete : {}\nNumerical : {}\nPresentation : {}".format(Subject_Dict["MTHN104"],Subject_Dict["MTHN201"],Subject_Dict["GENN201"]))
 
 
 
