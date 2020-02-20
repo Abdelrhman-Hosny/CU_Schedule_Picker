@@ -24,7 +24,7 @@ class Subject:
         return False
 
     def __str__(self):
-        return "{} : {} from {} to {} ".format(self.code,self.day,self.startTime,self.endTime)
+        return "{} from {} to {} ".format(self.code,self.startTime,self.endTime)
 
     def __repr__(self):
         return str(self)

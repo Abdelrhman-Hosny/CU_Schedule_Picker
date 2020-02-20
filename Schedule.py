@@ -1,5 +1,6 @@
 import Subject as sb
 from math import ceil
+from copy import deepcopy
 
 
 class Schedule:
@@ -29,12 +30,16 @@ class Schedule:
 
     @staticmethod
     def generateSchedule(SubjDict : dict) -> list :
-        ScheduleList , len_schedule = [Schedule()] , 1
+        ScheduleList  = [Schedule()]
         for SubjArray in SubjDict.values():
             SubjArrLength = len(SubjArray)
             if (SubjArrLength == 0) : continue #if array empty skip to next loop other wise it would * by zero and delete all previous loops' work
-            ScheduleList = ScheduleList.copy() * SubjArrLength
-            len_schedule = len_schedule * SubjArrLength
+            len_schedule = len(ScheduleList)
+            newScheduleList = []
+            for _ in range(SubjArrLength):
+                newScheduleList += deepcopy(ScheduleList)
+            ScheduleList = deepcopy(newScheduleList)
+            len_schedule *= SubjArrLength
             subjIndex = 0
             for SchedNum , Sched in enumerate(ScheduleList,1):
                 if((SchedNum % (len_schedule / SubjArrLength)) == 0 ):

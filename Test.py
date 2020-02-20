@@ -56,12 +56,18 @@ Subject_Dict[circ_tut[0].code] = circ_tut
 
 Schedule_List = Schedule.generateSchedule(Subject_Dict)
 
+f = open("/home/a-lnx/Sched_File.txt","w+")
 
+for Sched in Schedule_List:
+    f.write('-'*50)
+    f.write("\n")
+    for key , val in Sched.days.items():
+        line = key + " : " +  str(val)
+        f.write(line)
+        f.write("\n")
 
-# for Sched in Schedule_List:
-#     print('-'*50)
-#     for keys , val in Sched.days.items():
-#         print(keys , " : ", val)
+f.close()
+print(len(Schedule_List))
 
 
 
