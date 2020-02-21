@@ -23,9 +23,16 @@ class Schedule:
 
     @staticmethod
     def removeClash(ScheduleList : list):
-        for Sched in ScheduleList:
-            if Sched.Clash_Stat == True:
-                ScheduleList.remove(Sched)
+        i , ListLength = 0 , len(ScheduleList)
+        while(i < ListLength):
+            if(ScheduleList[i].Clash_Stat == True):
+                ScheduleList.remove(ScheduleList[i])
+                ListLength -= 1
+            else:
+                i += 1
+        # for Sched in ScheduleList:
+        #     if Sched.Clash_Stat == True:
+        #         ScheduleList.remove(Sched)
 
 
     @staticmethod
@@ -47,7 +54,7 @@ class Schedule:
                 Sched.addSubj((SubjArray[subjIndex - 1]))
 
             Schedule.removeClash(ScheduleList)
-        Schedule.removeClash(ScheduleList)
+        
         return ScheduleList
 
 
