@@ -47,7 +47,7 @@ class Schedule:
                 Sched.addSubj((SubjArray[subjIndex - 1]))
 
             Schedule.removeClash(ScheduleList)
-                    
+        Schedule.removeClash(ScheduleList)
         return ScheduleList
 
 

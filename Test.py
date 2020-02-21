@@ -37,6 +37,7 @@ circ_tut = []
 circ_lec.append(Subject("ELCN112L","Sunday",13,0,16,0))
 circ_lec.append(Subject("ELCN112L","Tuesday",13,0,16,0))
 circ_lec.append(Subject("ELCN112L","Tuesday",8,0,11,0))
+
 circ_tut.append(Subject("ELCN112T","Wednesday",11,0,13,0))
 circ_tut.append(Subject("ELCN112T","Wednesday",14,0,16,0))
 circ_tut.append(Subject("ELCN112T","Thursday",11,0,13,0))
@@ -56,6 +57,11 @@ Subject_Dict[circ_tut[0].code] = circ_tut
 
 Schedule_List = Schedule.generateSchedule(Subject_Dict)
 
+# for Sched in Schedule_List:
+#     print('-'*50)
+#     for key , val in Sched.days.items():
+#         line = key + " : " +  str(val)
+#         print(line)
 f = open("/home/a-lnx/Sched_File.txt","w+")
 
 for Sched in Schedule_List:
