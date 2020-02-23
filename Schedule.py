@@ -30,11 +30,27 @@ class Schedule:
                 ListLength -= 1
             else:
                 i += 1
-        # for Sched in ScheduleList:
-        #     if Sched.Clash_Stat == True:
-        #         ScheduleList.remove(Sched)
+
+    @staticmethod
+    def sort_day(day_list): 
+        n = len(day_list) 
+        for i in range(n):        
+            for j in range(0, n-i-1): 
+
+                if (day_list[j].startTime > day_list[j+1].startTime) : 
+                    day_list[j], day_list[j+1] = day_list[j+1], day_list[j] 
+
+    @staticmethod
+    def sort_schedule(scheduleList):
+        for Sched   in scheduleList:
+            for day in Sched.days:
+                Schedule.sort_day(Sched.days[day])
+        
+        
 
 
+
+            
     @staticmethod
     def generateSchedule(SubjDict : dict) -> list :
         ScheduleList  = [Schedule()]

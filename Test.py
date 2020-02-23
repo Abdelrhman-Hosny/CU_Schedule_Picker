@@ -9,17 +9,17 @@ num = []
 num.append(Subject("MTHN201" , "Thursday" ,8,0,11,0,Subject("MTHN201","Thursday",11,0,13,0)) )
 num.append(Subject("MTHN201" , "Monday" ,8,0,11,0,Subject("MTHN201","Tuesday",13,0,15,0) ))
 
-# pres =[]
-# pres.append(Subject("GENN201","Sunday",9,0,11,0))
-# pres.append(Subject("GENN201","Sunday",11,0,13,0))
-# pres.append(Subject("GENN201","Tuesday",9,0,11,0))
-# pres.append(Subject("GENN201","Tuesday",11,0,13,0))
+pres =[]
+pres.append(Subject("GENN201","Sunday",9,0,11,0))
+pres.append(Subject("GENN201","Sunday",11,0,13,0))
+pres.append(Subject("GENN201","Tuesday",9,0,11,0))
+pres.append(Subject("GENN201","Tuesday",11,0,13,0))
 
-# acc = []
-# acc.append(Subject("GENN224","Sunday",9,0,11,0))
-# acc.append(Subject("GENN224","Sunday",11,0,13,0))
-# acc.append(Subject("GENN224","Tuesday",9,0,11,0))
-# acc.append(Subject("GENN224","Tuesday",11,0,13,0))
+acc = []
+acc.append(Subject("GENN224","Sunday",9,0,11,0))
+acc.append(Subject("GENN224","Sunday",11,0,13,0))
+acc.append(Subject("GENN224","Tuesday",9,0,11,0))
+acc.append(Subject("GENN224","Tuesday",11,0,13,0))
 
 
 mech = []
@@ -59,26 +59,31 @@ Subject_Dict[data_tut[0].code] = data_tut
 Subject_Dict[mech[0].code] = mech
 Subject_Dict[circ_lec[0].code] = circ_lec
 Subject_Dict[circ_tut[0].code] = circ_tut
+# Subject_Dict[pres[0].code] = pres
+# Subject_Dict[acc[0].code] = acc
+
 
 
 Schedule_List = Schedule.generateSchedule(Subject_Dict)
 
-# for Sched in Schedule_List:
-#     print('-'*50)
-#     for key , val in Sched.days.items():
-#         line = key + " : " +  str(val)
-#         print(line)
-f = open("/home/a-lnx/Sched_File3.txt","w+")
+Schedule.sort_schedule(Schedule_List)
 
 for Sched in Schedule_List:
-    f.write('-'*50)
-    f.write("\n")
+    print('-'*50)
     for key , val in Sched.days.items():
         line = key + " : " +  str(val)
-        f.write(line)
-        f.write("\n")
+        print(line)
+# f = open("/home/hos/nSched1.txt","w+")
 
-f.close()
+# for Sched in Schedule_List:
+#     f.write('-'*50)
+#     f.write("\n")
+#     for key , val in Sched.days.items():
+#         line = key + " : " +  str(val)
+#         f.write(line)
+#         f.write("\n")
+
+# f.close()
 print(len(Schedule_List))
 
 
