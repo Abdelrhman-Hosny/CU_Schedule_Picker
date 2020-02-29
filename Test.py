@@ -1,4 +1,4 @@
-#This is this terms subects that I'm taking on which I'm going to try the algorithm
+#This is this terms subjects that I'm taking on which I'm going to try the algorithm
 from Subject import Subject
 from Schedule import Schedule
 import time

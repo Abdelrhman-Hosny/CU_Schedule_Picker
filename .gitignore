@@ -1,3 +1,6 @@
 *.png
 Experimentation*.py
 *.pyc
+.vscode/settings.json
+Test*
+*.pyc
