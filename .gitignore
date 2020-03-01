@@ -1,6 +1,7 @@
 *.png
 Experimentation*.py
 *.pyc
-.vscode/settings.json
+.vscode/*
 Test*
 *.pyc
+Chapter*

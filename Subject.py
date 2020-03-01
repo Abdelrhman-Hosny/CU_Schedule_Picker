@@ -1,9 +1,9 @@
 import datetime
-weekdays = ["Sunday","Monday",'Tuesday','Wednesday','Thursday']
+
 class Subject:
     def __init__(self,code,day,startHour,startMin,endHour,endMin,link=None):
-        self.code = code.upper()
-        self.day = day.lower()
+        self.code = code.strip().upper()
+        self.day = day.strip().lower().capitalize()
         self.startTime = datetime.time(startHour,startMin)
         self.endTime = datetime.time(endHour,endMin)
         self.link = link
@@ -33,7 +33,7 @@ class Subject:
     def from_string(cls , s_main , s_link=None):
         cd , dy , stH , stM ,enH , enM = s_main.split(',')
         if not(s_link == None):
-            dy1 , stH1 , stM1 ,enH1 , enM1 = s_link.split(',')
+            _ , dy1 , stH1 , stM1 ,enH1 , enM1 = s_link.split(',')
             return cls(cd,dy,int(stH),int(stM),int(enH),int(enM),cls(cd,dy1,int(stH1),int(stM1),int(enH1),int(enM1)))
         return cls(cd,dy,int(stH),int(stM),int(enH),int(enM))
 
