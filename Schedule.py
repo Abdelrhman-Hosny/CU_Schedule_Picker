@@ -8,7 +8,7 @@ class Schedule:
     def __init__(self):
         self.days = {}
         for day in sb.weekdays:
-            self.days[day.lower()] = []
+            self.days[day] = []
             self.Clash_Stat = False
     
     def addSubj(self , Subj):

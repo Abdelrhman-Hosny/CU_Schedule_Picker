@@ -1,5 +1,5 @@
 import datetime
-
+weekdays = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Saturday']
 class Subject:
     def __init__(self,code,day,startHour,startMin,endHour,endMin,link=None):
         self.code = code.strip().upper()
