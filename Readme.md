@@ -14,7 +14,7 @@ However Here are some tips that I would advise you to do :
 
 * Before saving check that all the subjects are registered properly as any error in time / name / day will result in not getting all the possible schedules
 
-* **Most Importantly : Time follow the 24-Hour Format**
+* **Most Importantly : Time follows the 24-Hour Format**
 
 * After that simply click on Print and It'll print the possible schedules into the file that you named like so :
   
