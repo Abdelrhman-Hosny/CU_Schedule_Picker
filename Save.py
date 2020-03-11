@@ -1,5 +1,6 @@
 from Action import Action
 import os
+from Error import Error
 
 class Save(Action):
 
@@ -12,6 +13,9 @@ class Save(Action):
     
     def execute(self,event = None):
         Action.execute(self)
+        if( "," in self.filename or "\\" in self.filename):
+            _ = Error("Cannot use , or \\ in Filename")
+            return
 
         f = open(os.path.expanduser(self.filename),"w+")
         for i , subj in enumerate(self.ScheduleList, 1):

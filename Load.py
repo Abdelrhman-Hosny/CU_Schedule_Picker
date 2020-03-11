@@ -2,6 +2,7 @@ from Action import Action
 from SubjectLabel import SubjectLabel
 import os
 import tkinter.messagebox as msg
+from Error import Error
 
 class Load(Action):
 
@@ -15,6 +16,9 @@ class Load(Action):
 
     def execute(self,event= None):
         Action.execute(self)
+
+        if(len(self.filename)==0):
+            _ = Error("E")
 
         f = open(os.path.expanduser(self.filename),"r")
         L = f.readlines()
@@ -33,6 +37,7 @@ class Load(Action):
 
 
         f.close()
+
         self.wind.destroy()
     
     def remove_subject(self,event):

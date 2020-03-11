@@ -6,6 +6,7 @@ from SubjectLabel import SubjectLabel
 from Save import Save
 from Load import Load
 from Print import Print
+from Error import Error
 
 
 class ScheduleMaker(tk.Tk):

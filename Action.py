@@ -17,10 +17,7 @@ class Action:
 
     def execute(self):
         self.filename = str(self.entry.get().strip())
-        if  len(self.filename) == 0:
-            return
-        else:
-            fullfilename = os.getcwd() + '/' +self.filename +'.txt'
-            self.filename = fullfilename
+        fullfilename = os.getcwd() + '/' +self.filename +'.txt'
+        self.filename = fullfilename
         
 
