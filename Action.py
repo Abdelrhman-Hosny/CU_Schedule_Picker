@@ -16,8 +16,5 @@ class Action:
         self.filename = ""
 
     def execute(self):
-        self.filename = str(self.entry.get().strip())
-        fullfilename = os.getcwd() + '/' +self.filename +'.txt'
-        self.filename = fullfilename
-        
+        self.filename = str(self.entry.get().strip())  
 

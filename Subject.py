@@ -37,3 +37,18 @@ class Subject:
             return cls(cd,dy,int(stH),int(stM),int(enH),int(enM),cls(cd,dy1,int(stH1),int(stM1),int(enH1),int(enM1)))
         return cls(cd,dy,int(stH),int(stM),int(enH),int(enM))
 
+    def __eq__(self,sub2):
+        if not isinstance(sub2 , Subject):
+            return False 
+        
+        compLect = (self.code == sub2.code) and (self.startTime == sub2.startTime) and (self.endTime == sub2.endTime) and (self.day == sub2.day)
+        
+        if (self.link == None or sub2.link == None):
+            compTut = True
+        else:
+            compTut = (self.link.code == sub2.link.code) and (self.link.startTime == sub2.link.startTime) and (self.link.endTime == sub2.link.endTime) and (self.link.day == sub2.link.day)
+        return (compLect and compTut)
+        
+
+
+

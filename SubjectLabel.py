@@ -29,7 +29,4 @@ class SubjectLabel(tk.Label):
 
 
 
-    def __del__(self):
-        pass 
-
 

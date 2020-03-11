@@ -160,20 +160,26 @@ class ScheduleMaker(tk.Tk):
         tutText = ','.join([self.tutorialDay_Entry.get().strip(),self.tutorialStartH_Entry.get(),self.tutorialStartM_Entry.get(),
         self.tutorialEndH_Entry.get(),self.tutorialEndM_Entry.get()])
 
+        
+        #initialize to extend scope    
+        subNlabel = None  #subNlabel = Subject and Label
         if not (tutText == ",,,,"):
-            #subNlabel = Subject and Label
-            subNlabel = SubjectLabel(self.subj_frame,lecText,tutText)
-            subNlabel.SubLabel.pack(side = tk.TOP , fill = tk.X , anchor = "center")
-            subNlabel.SubLabel.bind("<Button-1>",self.remove_subj)
-            self.SubjectList.append(subNlabel)
+             subNlabel = SubjectLabel(self.subj_frame,lecText,tutText)
         else:
             #subNlabel = Subject and Label
             subNlabel = SubjectLabel(self.subj_frame,lecText)
+        
+        isDuplicate = False
+        for subCheck in self.SubjectList:
+            if(subNlabel.SubObj == subCheck.SubObj ):
+                isDuplicate = True
+        
+        if not (isDuplicate):
             subNlabel.SubLabel.pack(side = tk.TOP , fill = tk.X , anchor = "center")
             subNlabel.SubLabel.bind("<Button-1>",self.remove_subj)
             self.SubjectList.append(subNlabel)
         
-        
+        #deleting Entries after getting data 
         self.lectureDay_Entry.delete(0,tk.END)
         self.lectureStartH_Entry.delete(0,tk.END)
         self.lectureStartM_Entry.delete(0,tk.END)

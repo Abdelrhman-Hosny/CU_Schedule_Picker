@@ -13,10 +13,17 @@ class Save(Action):
     
     def execute(self,event = None):
         Action.execute(self)
-        if( "," in self.filename or "\\" in self.filename):
-            _ = Error("Cannot use , or \\ in Filename")
+        #making sure filename isn't "" and that it doesnt have commas
+        if(len(self.filename)==0):
+            _ = Error("File must have a name")
+            return
+        if( "," in self.filename):
+            _ = Error("Cannot use commas in filename when saving")
             return
 
+        #saving items into the file
+        fullfilename = os.getcwd() + '/' +self.filename +'.txt'
+        self.filename = fullfilename
         f = open(os.path.expanduser(self.filename),"w+")
         for i , subj in enumerate(self.ScheduleList, 1):
             f.write(str(i) + "\t")
@@ -31,4 +38,5 @@ class Save(Action):
             f.write("\n")
             
         f.close()
+        self.filename = ""
         self.wind.destroy()
