@@ -1,6 +1,6 @@
 import tkinter as tk
 from Subject import Subject 
-import Schedule , os
+import Schedule , os , Shortcuts
 import tkinter.messagebox as msg
 from SubjectLabel import SubjectLabel
 from Save import Save
@@ -24,8 +24,8 @@ class ScheduleMaker(tk.Tk):
 
         #Title and window Size 
 
-        self.title("Schedule Picker v1")
-        self.geometry("700x500")
+        self.title("Schedule Picker")
+        self.geometry("750x500")
 
         #Creating a dropdown menu
         self.menu = tk.Menu(self)
@@ -43,7 +43,14 @@ class ScheduleMaker(tk.Tk):
         self.subMenu2 = tk.Menu(self.menu)
         self.menu.add_cascade(label ="Print", menu = self.subMenu2)
         self.subMenu2.add_command(label = "Print" , command = self.print)
-        
+
+        self.subMenu3 = tk.Menu(self.menu)
+        self.menu.add_cascade(label = "Shortcuts" , menu = self.subMenu3 )
+        self.subMenu3.add_command(label = "Shortcuts" , command = self.show_shortcuts)   
+
+        self.subMenu4 = tk.Menu(self.menu)
+        self.menu.add_cascade(label = "Credits" , menu = self.subMenu4)
+        self.subMenu4.add_command(label = "A.H")
 
 
         #creating and packing canvas and frames and scrollbar
@@ -62,6 +69,11 @@ class ScheduleMaker(tk.Tk):
         self.scrollbar.pack(side=tk.RIGHT , fill = tk.Y)
 
         self.subj_canvas.pack(side=tk.TOP,fill = tk.BOTH , expand = 1)
+
+        #Reminder to Enter time in 24 hour format
+
+        self.reminder_label = tk.Label(self.entry_frame,text="Enter Time in 24 Hour Format i.e Enter 13:00 instead of 1 PM",bg="#000000",fg="red",pady = 10)
+        self.reminder_label.pack(side = tk.BOTTOM , fill = tk.X)
 
         #creating and packing Entry & Label/Label Frames for tutorial and lecture
 
@@ -148,6 +160,9 @@ class ScheduleMaker(tk.Tk):
         self.bind_all("<MouseWheel>", self.mouse_scroll)
         self.bind_all("<Button-4>", self.mouse_scroll)
         self.bind_all("<Button-5>", self.mouse_scroll)
+        self.bind("<Control-s>",self.save)
+        self.bind("<Control-c>" , self.clear)
+        self.bind("<Control-l>",self.load)
 
         
 
@@ -216,11 +231,11 @@ class ScheduleMaker(tk.Tk):
     
     
 
-    def save(self):
+    def save(self,event=None):
         _ = Save(self.SubjectList)
 
 
-    def load(self):
+    def load(self,event=None):
         _ = Load(self.subj_frame,self.SubjectList)
 
         
@@ -252,6 +267,9 @@ class ScheduleMaker(tk.Tk):
 
     def on_subj_configure(self, event=None):
         self.subj_canvas.configure(scrollregion=self.subj_canvas.bbox("all"))
+
+    def show_shortcuts(self):
+        _ = Shortcuts.Shortcuts()
 
 if __name__ == "__main__":
 

@@ -13,6 +13,7 @@ class Action:
         self.lbl.pack(side=tk.TOP)
         self.entry.pack(side=tk.TOP)
         self.butt.pack(side=tk.TOP)
+        self.entry.focus_set()
         self.filename = ""
 
     def execute(self):
