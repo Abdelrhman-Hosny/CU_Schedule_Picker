@@ -10,7 +10,7 @@ However Here are some tips that I would advise you to do :
 * Don't just add all subject at once , what I mean is for example let's say you have two subjects "MTH" & "CMP"
   Fill all the available MTH lectures then save it to a folder and clear all items and do the same for CMP
   this will result in you being able to load MTH and CMP at anytime from the files they were saved in
-  **This is shown in the video I posted**
+  **This is shown in the video I ~Posted~ am going to post in the future :)**
 
 * Before saving check that all the subjects are registered properly as any error in time / name / day will result in not getting all the possible schedules
 
